@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login2FA</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <main>
+      <%= render "layouts/alert" %>
+      <% if current_user %>
+        <!-- We create a link to log out -->
+        <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete, data: { turbo_method: :delete } %>
+      <% end %>
+      <%= yield %>
+
+    </main>
+  </body>
+</html>

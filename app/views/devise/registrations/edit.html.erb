@@ -1,0 +1,66 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0">
+    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Edit a User
+        </h1>
+        <form class="space-y-4 md:space-y-6" action="#">
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
+            <div>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "name@company.com", required: true %>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+          </div>
+          <% if resource.otp_required_for_login %>
+            <div class="field m-4">
+              <%= f.label :otp_attempt, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
+              <i>Enter OTP to disable Two Factor Authenticator</i><br>
+              <%= f.text_field :otp_attempt, autofocus: true, class: "border border-[#000] bg-red"%>
+            </div>
+          <% else %>
+            <div class="field m-4">
+              <%= f.label :otp_attempt, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
+              <br>
+              <i>Enter OTP?</i>
+              <%= link_to "Enable 2FA", enable_otp_show_qr_path, class: "border border-[#000] m-4 p-2 rounded hover:bg-[#000] hover:text-white" %>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <i>(leave blank if you don't want to change it)</i> <br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+            <% if @minimum_password_length %>
+              <br />
+              <em><%= @minimum_password_length %> characters minimum</em>
+            <% end %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :current_password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %> <i>(we need your current password to confirm your changes)</i><br />
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true %>
+          </div>
+
+          <%= f.submit "Update", class: "w-full border border-[#000] p-2 rounded hover:bg-[#000] hover:text-white" %>
+
+        </form>
+        <div class="flex space-y-4 md:space-y-6 justify-between">
+          <%= link_to "Back", :back, class: "border border-[#000] w-[180px] h-[45px] text-center capitalize mt-6 p-2 rounded hover:bg-[#000] hover:text-white" %>
+          <%= button_to "Cancel My Account",  registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "border border-[#000] w-[190px] h-[45px] ml-2 p-2 rounded hover:bg-[#000] hover:text-white capitalize" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<% end %>

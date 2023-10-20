@@ -1,0 +1,31 @@
+
+  <%= form_tag(enable_otp_verify_path, method: :post) do %>
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-xl dark:text-white">
+          Scan QR Code to Enable Authentication
+        </h1>
+        <form class="space-y-4 md:space-y-6" action="#">
+          <div  class=" flex justify-center">
+            <%= raw RQRCode::QRCode.new(@provisioning_uri, :svg, :level => :l, :unit => 2).as_svg(color: "000",
+                                                                                                  shape_rendering: "crispEdges", module_size: 7,
+                                                                                                  use_path: true,) %>
+          </div>
+
+            <div class="flex justify-between">
+              <label>Enter OTP Code</label>
+              <p class="border rounded ml-3"><%= text_field_tag(:otp_attempt) %></p>
+            </div>
+
+          <%= submit_tag "Verify and Enable", class: "border border-[#000] w-full text-center capitalize mt-6 p-2 rounded hover:bg-[#000] hover:text-white" %>
+        </form>
+        <div class="flex space-y-4 md:space-y-6 justify-between">
+          <%= link_to "Back", :back, class: "border border-[#000] w-full text-center capitalize p-2 rounded hover:bg-[#000] hover:text-white" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <% end %>
