@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_of_birth: 2023-10-21
+  language: MyString
+  home_town: MyString
+  about_me: MyString
+  user: one
+
+two:
+  date_of_birth: 2023-10-21
+  language: MyString
+  home_town: MyString
+  about_me: MyString
+  user: two

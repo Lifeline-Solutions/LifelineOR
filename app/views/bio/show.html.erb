@@ -1,0 +1,11 @@
+<div class="p-4 sm:ml-64 text-black">
+
+    <p class="text-black">
+    <%= @bio.date_of_birth %>
+    <%= @bio.language  %>
+    <%= @bio.home_town %>
+    <%= @bio.about_me %>
+
+</div>
+
+<h3>Hello</h3>This the Id:<%= @bio.user_id %><%= link_to "Edit", edit_bio_path(@bio.id), class: "text-black" %>

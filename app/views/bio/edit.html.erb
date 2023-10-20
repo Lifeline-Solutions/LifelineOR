@@ -1,0 +1,9 @@
+<div class="p-4 sm:ml-64">
+  <div class="p-1 rounded-lg mt-14">
+<%= form_with(model: @bio, url: bio_path(@bio), method: :patch, class: "bg-white rounded shadow-md p-6") do |f| %>
+  <%= f.label :gender %>
+  <%= f.date_field :date_of_birth %>
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root "pages#home"
-  get 'pages/home'
+  root "pages#index"
+  get 'pages/index'
   devise_for :users, controllers:
     { registrations: 'users/registrations',
       sessions: 'users/sessions'
@@ -17,4 +17,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :bio, only: %i[index show new create destroy edit update]
 end
