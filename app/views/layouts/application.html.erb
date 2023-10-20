@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Login2FA</title>
+    <title>Lifeline OR</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,8 +15,8 @@
     <main>
       <%= render "layouts/alert" %>
       <% if current_user %>
+        <%= render "layouts/sidebar" %>
         <!-- We create a link to log out -->
-        <%= link_to "Sign Out", destroy_user_session_path, class: "nav-link", method: :delete, data: { turbo_method: :delete } %>
       <% end %>
       <%= yield %>
 
