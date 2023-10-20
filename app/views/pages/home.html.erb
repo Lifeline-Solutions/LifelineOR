@@ -1,6 +1,5 @@
 <div class="p-4 sm:ml-64">
-  <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
-
+  <div class="p-1 rounded-lg mt-14">
     <!--This is the working code-->
     <div class="grid md:grid-cols-5 grid-cols-1 gap-4 mb-4">
       <div class="col-span-2">
@@ -32,11 +31,21 @@
 
 
       <div class="col-span-3">
-        <div class="flex rounded bg-gray-50 h-[30rem] dark:bg-gray-800 mb-4">
+        <div class="rounded bg-gray-50 h-[30rem] dark:bg-gray-800 mb-4">
           <div>
-            <div>
-              <h5 class="text-2xl text-gray-400 dark:text-white m-4">General Information</h5>
-            </div>
+                  <div class="flex">
+                    <div>
+                      <h5 class="text-2xl text-gray-400 dark:text-white m-4">General Information</h5>
+                    </div>
+                    <!--BUTTON TO ADD NEW INFORMATION-->
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
+                      <!--SVG ICON ADD more information-->
+                      <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                      </svg>
+                      Add New Information
+                    </button>
+                  </div>
             <div>
               <h5 class="text-xl text-gray-400 dark:text-white m-4">About Me</h5>
             </div>
