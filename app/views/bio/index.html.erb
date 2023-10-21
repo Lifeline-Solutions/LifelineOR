@@ -1,0 +1,9 @@
+<div class="p-4 sm:ml-64 text-black">
+    <% @bio.each do |bio|  %>
+      <%= bio.user_id %>
+       <%= bio.date_of_birth %>
+    <%= bio.language  %>
+    <%= bio.home_town %>
+    <%= bio.about_me %>
+    <% end %>
+</div>
