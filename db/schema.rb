@@ -19,7 +19,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_212724) do
     t.date "date_of_birth"
     t.string "language"
     t.string "home_town"
+    t.string "city"
+    t.string "country"
     t.string "about_me"
+    t.string "health_insurance"
+    t.string "nhif_number"
+    t.string "nationality"
+    t.string "religion"
+    t.string "blood_group"
+    t.string "hospital_to_attend"
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

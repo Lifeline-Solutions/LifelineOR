@@ -4,7 +4,8 @@
     <%= @bio.date_of_birth %>
     <%= @bio.language  %>
     <%= @bio.home_town %>
-    <%= @bio.about_me %>
+      <%= link_to "Edit", edit_bio_path(@bio), class: "btn btn-primary" %>
+    </p>
 
 </div>
 
