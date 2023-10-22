@@ -1,8 +1,9 @@
 class BioController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+  load_and_authorize_resource
 
   def index
-    @bio = Bio.all.order('created_at DESC')
+    @bio = Bio.all
   end
 
   def show
@@ -34,6 +35,7 @@ class BioController < ApplicationController
   end
 
   def edit
+    # Pick the bio id that matches the user id
     @bio = Bio.find(params[:id])
   end
 
@@ -51,6 +53,7 @@ class BioController < ApplicationController
   private
 
   def bio_params
-    params.require(:bio).permit(:date_of_birth, :language, :home_town, :about_me, :user_id)
+    params.require(:bio).permit(:date_of_birth, :language, :home_town, :city, :country, :about_me, :health_insurance,
+                                :nhif_number, :nationality, :religion, :blood_group, :hospital_to_attend, :user_id)
   end
 end

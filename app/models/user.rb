@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def create_bio
     Bio.create(user_id: id)
   end
+  has_one :bio
 end

@@ -9,6 +9,25 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <script type="text/javascript" src="https://cdn.tiny.cloud/1/51we9eiu22w8w2p4fijko8ri7e3d66dm3jd9rbbcdia8l1em/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '.tinymce',
+            height: 500,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount',
+                'textcolor'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                ' bold italic backcolor | alignleft aligncenter ' +
+                ' alignright alignjustify | bullist numlist outdent indent | ' +
+                ' removeformat | help' + ' | forecolor backcolor',
+        });
+    </script>
   </head>
 
   <body>

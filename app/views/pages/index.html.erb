@@ -33,31 +33,78 @@
       <div class="col-span-3">
         <div class="rounded bg-gray-50 h-[30rem] dark:bg-gray-800 mb-4">
           <div>
-                  <div class="flex">
+                  <div class="flex justify-between">
                     <div>
-                      <h5 class="text-2xl text-gray-400 dark:text-white m-4">General Information</h5>
+                      <h5 class="text-2xl text-[#000] dark:text-white m-4">General Information</h5>
                     </div>
                     <!--BUTTON TO ADD NEW INFORMATION-->
-                    <% @bio.each do |bio| %>
-                      <%= link_to edit_bio_path(bio.id) do %>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
-                              <!--SVG ICON ADD more information-->
-                              <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                              </svg>
-                              Add New Information
-                            </button>
-                        <% end %>
+                    <div>
 
-                       <% end %>
+                      <% @bio.each do |bio| %>
+                        <% if can? :read, bio %>
+                          <%= link_to edit_bio_path(bio.id) do %>
+                                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
+                                    <!--SVG ICON ADD more information-->
+                                    <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                    Add New Information
+                                  </button>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+
+
+
+
+
+
+                    </div>
                   </div>
-            <div>
-              <h5 class="text-xl text-gray-400 dark:text-white m-4">About Me</h5>
-              <p class="text-gray-400 dark:text-white m-4">
-                <% @bio.limit(1).each do |bio| %>
-                  <%= bio.date_of_birth %>
-                <% end %>
-            </div>
+
+            <% @bio.each do |bio| %>
+              <% if can? :read, bio %>
+
+                <div>
+                  <h5 class="text-xl text-[#000] dark:text-white m-4">
+                    About Me
+                  </h5>
+
+
+                  <div class="text-[#060606] dark:text-white m-4">
+                    <%= raw bio.about_me %>
+                  </div>
+                  <div class="text-[#060606] dark:text-white m-4">
+                    <div>
+                      <h5>Date of Birth :</h5>
+                      <p>
+                        <%= bio.date_of_birth %>
+                      </p>
+                    </div>
+
+
+                    <p>Language : <%= bio.language %></p>
+                    <p>HomeTown : <%= bio.home_town %></p>
+                    <p>City : <%= bio.city %></p>
+                    <p>Country : <%= bio.country %></p>
+                    <p>Health Insurance : <%= bio.health_insurance %></p>
+                    <p>NHIF Number : <%= bio.nhif_number %></p>
+                    <p>Nationality : <%= bio.nationality %></p>
+                    <p>Religion : <%= bio.religion %></p>
+                    <p>Blood Group : <%= bio.blood_group %></p>
+                    <p>Hospital Attendant : <%= bio.hospital_to_attend %></p>
+                    <p>user id : <%= bio.user_id %></p>
+                    <p>user id : <%= current_user.email %></p>
+                    <p>user id : <%= current_user.id %></p>
+
+
+                  </div>
+
+
+                </div>
+            <% end %>
+            <% end %>
+
           </div>
         </div>
         <!-- Column two-->

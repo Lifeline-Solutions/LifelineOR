@@ -77,5 +77,7 @@ end
 
 gem 'devise', '~> 4.9'
 
+gem 'cancancan'
 gem 'devise-two-factor', '~> 5.0'
 gem 'rqrcode'
+gem 'tinymce-rails'

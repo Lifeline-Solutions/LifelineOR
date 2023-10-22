@@ -4,3 +4,4 @@ import "controllers"
 import 'flowbite';
 import "flowbite/dist/flowbite.turbo.js";
 import "flowbite/dist/flowbite.css";
+//= require tinymce

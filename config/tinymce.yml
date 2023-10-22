@@ -1,0 +1,20 @@
+menubar: "insert view format table tools"
+toolbar:
+  - bold italic | link | undo redo | forecolor backcolor | bullist numlist outdent indent | table | uploadimage | code
+plugins:
+  - table
+  - fullscreen
+  - image
+  - code
+  - searchreplace
+  - wordcount
+  - visualblocks
+  - visualchars
+  - link
+  - charmap
+  - directionality
+  - nonbreaking
+  - media
+  - advlist
+  - autolink
+  - lists
