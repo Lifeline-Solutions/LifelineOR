@@ -80,6 +80,6 @@ gem 'devise', '~> 4.9'
 gem 'cancancan'
 gem 'devise-two-factor', '~> 5.0'
 gem 'rqrcode'
+gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
-gem 'sassc-rails', '~> 2.1', '>= 2.1.2'gem 'tinymce-rails'
-
+gem 'tinymce-rails'

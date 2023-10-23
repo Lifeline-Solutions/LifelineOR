@@ -19,7 +19,7 @@ class ConsultationsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Consultation.count') do
       post consultations_url,
            params: { consultation: { description: @consultation.description, end_time: @consultation.end_time,
-                                     start_time: @consultation.start_time, title: @consultation.title, user_id: @consultation.user_id } }
+                                     start_time: @consultation.start_time, title: @consultation.title } }
     end
 
     assert_redirected_to consultation_url(Consultation.last)
@@ -38,7 +38,7 @@ class ConsultationsControllerTest < ActionDispatch::IntegrationTest
   test 'should update consultation' do
     patch consultation_url(@consultation),
           params: { consultation: { description: @consultation.description, end_time: @consultation.end_time,
-                                    start_time: @consultation.start_time, title: @consultation.title, user_id: @consultation.user_id } }
+                                    start_time: @consultation.start_time, title: @consultation.title } }
     assert_redirected_to consultation_url(@consultation)
   end
 
