@@ -111,19 +111,22 @@
         <div class="flex flex-col  items-center rounded bg-gray-50 dark:bg-gray-800 p-[5%]">
           <div class="text-sm  text-gray-400 dark:text-white w-full text-center" >
             <!-- styling for Calender using tailwinds css -->
-            <%= month_calendar(events: @consultations) do |date, consultations| %>
-                <%= date.day %>
-              <% consultations.each do |consultation| %>
-                <div class="bg-red-900 text-white rounded text-sm mt-1">
-                  <%= link_to consultation.title, consultation %>
-                  <p>
-                    <%= consultation.start_time.strftime("%I:%M %p") %>
-                  </p>
-                  <p class="border-t-0 border-[#000]">
-                    <%= consultation.end_time.strftime("%I:%M %p") %>
-                  </p>
-                </div>
-              <% end %>
+
+              <%= month_calendar(events: @consultations) do |date, consultations| %>
+                  <%= date.day %>
+                <% consultations.each do |consultation| %>
+                <% if can? :read, consultation %>
+                  <div class="bg-red-900 text-white rounded text-sm mt-1">
+                    <%= link_to consultation.title, consultation %>
+                    <p>
+                      <%= consultation.start_time.strftime("%I:%M %p") %>
+                    </p>
+                    <p class="border-t-0 border-[#000]">
+                      <%= consultation.end_time.strftime("%I:%M %p") %>
+                    </p>
+                  </div>
+                <% end %>
+                <% end %>
             <% end %>
           </div>
         </div>
