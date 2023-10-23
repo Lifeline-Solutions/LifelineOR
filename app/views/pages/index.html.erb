@@ -3,28 +3,62 @@
     <!--This is the working code-->
     <div class="grid md:grid-cols-5 grid-cols-1 gap-4 mb-4">
       <div class="col-span-2">
-        <div class="flex rounded h-96 bg-gray-50 dark:bg-gray-800 p-4 mb-4">
+        <div class="flex flex-col rounded h-96 bg-gray-50 dark:bg-gray-800 p-4 mb-4">
           <% @profile.each do |profile| %>
-            <div class="flex justify-between">
+            <% if can? :read, profile %>
+            <!--This is the profile picture and Add Button-->
+            <div class="flex w-full justify-between grid-cols-2">
+                <div>
+                  <% if profile.avatar.attached? %>
+                    <%= image_tag(profile.avatar, class: "h-24 w-24 rounded") %>
+                  <% else %>
+                    <%= image_tag('logo.png', class: "h-24 w-24 rounded") %>
+                  <% end %>
+                </div>
               <div>
-                <% if profile.avatar.attached? %>
-                  <%= image_tag(profile.avatar, class: "h-28 w-28 rounded") %>
-                <% else %>
-                  <%= image_tag('logo.png') %>
-                <% end %>
-              </div>
-              <div>
-                <%= link_to edit_profile_path(profile.id) do %>
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
-                    <!--SVG ICON ADD more information-->
-                    <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                    Add Profile Details
-                  </button>
-                <% end %>
+                  <% if can? :read, profile %>
+                    <%= link_to edit_profile_path(profile.id) do %>
+                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
+                        <!--SVG ICON ADD more information-->
+                        <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                        </svg>
+                        Add Profile Details
+                      </button>
+                    <% end %>
+                  <% end %>
               </div>
             </div>
+            <div class="text-xl font-semibold mt-2 dark:text-white">
+              <%= profile.first_name %> <%= profile.last_name %>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Email</h5>
+              <p class="text-sm font-bold mt-1 dark:text-white">
+                <% if current_user %>
+                <%= current_user.email %>
+                  <% end %>
+              </p>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Home Address</h5>
+              <p class="text-sm font-bold mt-1 dark:text-white">
+                <%= profile.home_address %>
+              </p>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Phone Number</h5>
+              <p class="text-sm font-bold mt-1 dark:text-white">
+                <%= profile.phone_number %>
+              </p>
+            </div>
+            <div>
+              <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Occupation</h5>
+              <p class="text-sm font-bold mt-1 dark:text-white">
+                <%= profile.occupation %>
+              </p>
+            </div>
+              <% end %>
           <% end %>
         </div>
 
