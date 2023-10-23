@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_212724) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_22_191757) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_212724) do
     t.index ["user_id"], name: "index_bios_on_user_id"
   end
 
+  create_table "consultations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_consultations_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,4 +61,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_212724) do
   end
 
   add_foreign_key "bios", "users"
+  add_foreign_key "consultations", "users"
 end
