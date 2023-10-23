@@ -11,4 +11,5 @@ class User < ApplicationRecord
     Bio.create(user_id: id)
   end
   has_one :bio
+  has_many :consultations
 end

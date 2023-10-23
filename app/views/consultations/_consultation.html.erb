@@ -1,0 +1,27 @@
+<div id="<%= dom_id consultation %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Title:</strong>
+    <%= consultation.title %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= consultation.description %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Start time:</strong>
+    <%= consultation.start_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">End time:</strong>
+    <%= consultation.end_time %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this consultation", consultation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this consultation", edit_consultation_path(consultation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :consultations
   root "pages#index"
   get 'pages/index'
   devise_for :users, controllers:
@@ -18,4 +19,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :bio, only: %i[index show new create destroy edit update]
+  resources :consultations, only: %i[index show new create destroy edit update]
 end
