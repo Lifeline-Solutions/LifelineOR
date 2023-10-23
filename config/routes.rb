@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :bio, only: %i[index show new create destroy edit update]
   resources :consultations, only: %i[index show new create destroy edit update]
+  resources :profile, only: %i[index show new create destroy edit update]
 end

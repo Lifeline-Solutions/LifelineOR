@@ -1,0 +1,38 @@
+<div class="p-4 sm:ml-64 mt-14">
+
+  <!--Create a form for creating a profile-->
+  <%= form_with(model: @profile, url: profile_path(@profile), method: :patch, class: "bg-white rounded shadow-md p-6 ") do |f| %>
+    <div class="mb-4">
+      <%= f.label :first_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :first_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", autofocus: true %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :last_name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :last_name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :home_address, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :home_address, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :phone_number, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :phone_number, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :occupation, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :occupation, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div class="mb-4">
+      <%= f.label :location, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.text_field :location, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+
+    <div class="mb-4">
+      <%= f.label :avatar, class: "block text-gray-700 text-sm font-bold mb-2" %>
+      <%= f.file_field :avatar, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    </div>
+    <div class="flex items-center justify-between">
+      <%= f.submit "Update", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+    <% end %>
+</div>

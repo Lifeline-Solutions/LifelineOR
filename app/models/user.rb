@@ -6,10 +6,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # After User is create create a bio
-  after_create :create_bio
+  after_create :create_bio, :create_profile
   def create_bio
     Bio.create(user_id: id)
   end
+
+  def create_profile
+    Profile.create(user_id: id)
+  end
   has_one :bio
   has_many :consultations
+  has_one :profile
 end
