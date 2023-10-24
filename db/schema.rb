@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_23_185101) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_24_174011) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -73,6 +73,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_185101) do
     t.index ["user_id"], name: "index_consultations_on_user_id"
   end
 
+  create_table "nexts", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "relationship"
+    t.string "phone_number"
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_nexts_on_user_id"
+  end
+
   create_table "profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -106,5 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_23_185101) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bios", "users"
   add_foreign_key "consultations", "users"
+  add_foreign_key "nexts", "users"
   add_foreign_key "profiles", "users"
 end

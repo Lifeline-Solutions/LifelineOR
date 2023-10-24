@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @consultations = Consultation.where(
       start_time: Time.zone.now.beginning_of_month.beginning_of_week..Time.zone.now.end_of_month.end_of_week
     )
-    @profile = Profile.all
+    @profile = Profile.where(user_id: current_user.id)
+    @next = Next.all.order('created_at DESC')
   end
 end

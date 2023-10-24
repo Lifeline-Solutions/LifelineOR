@@ -153,6 +153,7 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
+    phonelib (0.8.4)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -288,6 +289,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   pg (~> 1.1)
+  phonelib (~> 0.8.4)
   puma (~> 5.0)
   rails (~> 7.0.8)
   rqrcode

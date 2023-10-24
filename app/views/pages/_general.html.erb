@@ -1,15 +1,15 @@
 <div class="rounded bg-gray-50 dark:bg-gray-800 mb-4">
   <div>
     <div class="flex justify-between">
-      <div>
-        <h5 class="text-2xl text-[#000] dark:text-white m-4">General Information</h5>
+      <div class="pl-8 pt-4">
+        <h5 class="text-2xl text-[#000] dark:text-white">General Information</h5>
       </div>
       <!--BUTTON TO ADD NEW INFORMATION-->
-      <div>
+      <div class="p-4">
         <% @bio.each do |bio| %>
           <% if can? :read, bio %>
             <%= link_to edit_bio_path(bio.id) do %>
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded p-4 ">
                 <!--SVG ICON ADD more information-->
                 <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
@@ -24,16 +24,16 @@
 
     <% @bio.each do |bio| %>
       <% if can? :read, bio %>
-        <div>
-          <h5 class="text-xl text-[#000] dark:text-white m-4">
+        <div class="p-4">
+          <h5 class="text-xl text-[#000] dark:text-white p-4">
             About Me
           </h5>
-          <div class="text-sm text-[#060606] dark:text-white m-4">
+          <div class="text-sm text-[#060606] dark:text-gray-300 p-4">
             <%= raw bio.about_me %>
           </div>
-          <div class="text-[#060606] dark:text-white m-4">
-            <div class="flex justify-between">
-              <div class="gap-1">
+          <div class="text-[#060606] dark:text-white p-4">
+            <div class="flex justify-start">
+              <div class="gap-1 w-[50%]">
                 <h5 class="text-sm font-semibold mb-2 dark:text-gray-500">Date of Birth</h5>
                 <p class="font-semibold mb-2">
                   <%= bio.date_of_birth %>
