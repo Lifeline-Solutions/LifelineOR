@@ -8,6 +8,7 @@ class Ability
     else
       can :manage, Bio, user_id: user.id
       can :manage, Consultation, user_id: user.id
+      can :manage, Profile, user_id: user.id
 
     end
 

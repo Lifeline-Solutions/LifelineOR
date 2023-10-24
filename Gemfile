@@ -83,3 +83,5 @@ gem 'rqrcode'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
 gem 'tinymce-rails'
+
+gem 'phonelib', '~> 0.8.4'

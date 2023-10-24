@@ -3,39 +3,9 @@
     <!--This is the working code-->
     <div class="grid md:grid-cols-5 grid-cols-1 gap-4 mb-4">
       <div class="col-span-2">
-        <div class="flex rounded h-96 bg-gray-50 dark:bg-gray-800 p-4 mb-4">
-          <% @profile.each do |profile| %>
-            <div class="flex justify-between">
-              <div>
-                <% if profile.avatar.attached? %>
-                  <%= image_tag(profile.avatar, class: "h-28 w-28 rounded") %>
-                <% else %>
-                  <%= image_tag('logo.png') %>
-                <% end %>
-              </div>
-              <div>
-                <%= link_to edit_profile_path(profile.id) do %>
-                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
-                    <!--SVG ICON ADD more information-->
-                    <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                    Add Profile Details
-                  </button>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
+       <%= render "profile" %>
+        <%= render "nextofkin" %>
 
-        <div class="flex items-center justify-center rounded bg-gray-50 h-64 dark:bg-gray-800 mb-4">
-          <p class="text-2xl text-gray-400 dark:text-gray-500">
-            <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-            </svg>
-            puk
-          </p>
-        </div>
         <div class="flex items-center justify-center rounded bg-gray-50 h-64 dark:bg-gray-800">
           <p class="text-2xl text-gray-400 dark:text-gray-500">
             <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -48,105 +18,11 @@
 
 
       <div class="col-span-3">
-        <div class="rounded bg-gray-50 h-[30rem] dark:bg-gray-800 mb-4">
-          <div>
-            <div class="flex justify-between">
-              <div>
-                <h5 class="text-2xl text-[#000] dark:text-white m-4">General Information</h5>
-              </div>
-              <!--BUTTON TO ADD NEW INFORMATION-->
-              <div>
-                <% @bio.each do |bio| %>
-                  <% if can? :read, bio %>
-                    <%= link_to edit_bio_path(bio.id) do %>
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
-                              <!--SVG ICON ADD more information-->
-                              <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                              </svg>
-                              Add New Information
-                            </button>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </div>
-            </div>
+        <!-- General Information Area-->
+        <%= render "general" %>
+        <!-- Calender With Events-->
+        <%= render "calendar" %>
 
-            <% @bio.each do |bio| %>
-              <% if can? :read, bio %>
-                <div>
-                  <h5 class="text-xl text-[#000] dark:text-white m-4">
-                    About Me
-                  </h5>
-                  <div class="text-sm text-[#060606] dark:text-white m-4">
-                    <%= raw bio.about_me %>
-                  </div>
-                  <div class="text-[#060606] dark:text-white m-4">
-                    <div class="flex justify-between">
-                      <div class="gap-1">
-                        <h5 class="text-sm font-semibold mb-2">Date of Birth</h5>
-                        <p class="text-sm font-semibold mb-2">
-                          <%= bio.date_of_birth %>
-                        </p>
-                        <h5 class="text-sm font-semibold mb-2">Language</h5>
-                        <p class="text-sm font-bold mb-2">
-                          <%= bio.language %>
-                        </p>
-                        <h5 class="text-sm font-semibold mb-2">HomeTown</h5>
-                        <p class="text-sm font-bold mb-2">
-                          <%= bio.home_town %>
-                        </p>
-                        <h5 class="text-sm font-semibold mb-2">City</h5>
-                        <p class="text-xl font-bold mb-2">
-                          <%= bio.city %>
-                        </p>
-                        <h5 class="text-sm font-semibold mb-2">Country</h5>
-                        <p class="text-xl font-bold mb-2">
-                          <%= bio.country %>
-                        </p>
-                        <h5 class="text-sm font-semibold mb-2">Health Insurance</h5>
-                        <p class="text-xl font-bold mb-2">
-                          <%= bio.health_insurance %>
-                        </p>
-                      </div>
-                      <div>
-                        <p>NHIF Number : <%= bio.nhif_number %></p>
-                        <p>Nationality : <%= bio.nationality %></p>
-                        <p>Religion : <%= bio.religion %></p>
-                        <p>Blood Group : <%= bio.blood_group %></p>
-                        <p>Hospital Attendant : <%= bio.hospital_to_attend %></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            <% end %>
-            <% end %>
-
-          </div>
-        </div>
-        <!-- Column two-->
-        <div class="flex flex-col  items-center rounded bg-gray-50 dark:bg-gray-800 p-[5%]">
-          <div class="text-sm  text-gray-400 dark:text-white w-full text-center" >
-            <!-- styling for Calender using tailwinds css -->
-
-              <%= month_calendar(events: @consultations) do |date, consultations| %>
-                  <%= date.day %>
-                <% consultations.each do |consultation| %>
-                <% if can? :read, consultation %>
-                  <div class="bg-red-900 text-white rounded text-sm mt-1">
-                    <%= link_to consultation.title, consultation %>
-                    <p>
-                      <%= consultation.start_time.strftime("%I:%M %p") %>
-                    </p>
-                    <p class="border-t-0 border-[#000]">
-                      <%= consultation.end_time.strftime("%I:%M %p") %>
-                    </p>
-                  </div>
-                <% end %>
-                <% end %>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
 
