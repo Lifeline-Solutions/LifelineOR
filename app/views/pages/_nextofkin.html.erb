@@ -2,6 +2,7 @@
 
     <div class="flow-root p-4">
       <% @next.limit(4).each do |nex|  %>
+        <% if can? :read, nex %>
         <%= link_to next_path(nex.id) do %>
           <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
             <li class="py-3 sm:py-4 border-b-2 border-gray-50">
@@ -21,6 +22,7 @@
             </li>
           </ul>
         <% end %>
+      <% end %>
       <% end %>
     </div>
 
