@@ -15,6 +15,6 @@ class User < ApplicationRecord
     Profile.create(user_id: id)
   end
   has_one :bio
-  has_many :consultations
+  has_many :consultation
   has_one :profile
 end

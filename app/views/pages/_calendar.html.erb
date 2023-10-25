@@ -5,7 +5,7 @@
       <%= date.day %>
       <% consultations.each do |consultation| %>
         <% if can? :read, consultation %>
-          <div class="bg-red-900 text-white rounded text-sm mt-1">
+          <div class="bg-red-900 text-gray-400 rounded text-sm mt-1">
             <%= link_to consultation.title, consultation %>
             <p>
               <%= consultation.start_time.strftime("%I:%M %p") %>

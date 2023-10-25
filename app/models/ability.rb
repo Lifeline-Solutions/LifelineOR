@@ -3,8 +3,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if user.id == true
-      can :manage, :all
+    if user.id == false
+      cannot :manage, :all
     else
       can :manage, Bio, user_id: user.id
       can :manage, Consultation, user_id: user.id
