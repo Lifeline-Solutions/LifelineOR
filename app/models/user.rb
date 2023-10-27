@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def create_profile
     Profile.create(user_id: id)
   end
-  has_one :bio
-  has_many :consultation
-  has_one :profile
+  has_one :bio, foreign_key: :user_id, class_name: 'Bio', dependent: :destroy
+  has_many :consultation, foreign_key: :user_id, class_name: 'Consultation', dependent: :destroy
+  has_one :profile, foreign_key: :user_id, class_name: 'Profile', dependent: :destroy
 end
