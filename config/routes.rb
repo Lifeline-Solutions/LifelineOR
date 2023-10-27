@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :consultations, only: %i[index show new create destroy edit update]
   resources :profile, only: %i[index show new create destroy edit update]
   resources :next, only: %i[index show new create destroy edit update]
+  resources :exist, only: %i[index show new create destroy edit update]
 end
