@@ -1,6 +1,5 @@
 class ExistController < ApplicationController
-  def index
-  end
+  def index; end
 
   def show
     @exist = Exist.find(params[:id])
