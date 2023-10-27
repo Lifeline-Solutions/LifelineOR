@@ -10,6 +10,7 @@ class Ability
       can :manage, Consultation, user_id: user.id
       can :manage, Profile, user_id: user.id
       can :manage, Next, user_id: user.id
+      can :manage, Exist, user_id: user.id
 
     end
 

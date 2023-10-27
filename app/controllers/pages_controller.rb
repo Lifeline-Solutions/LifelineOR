@@ -8,5 +8,6 @@ class PagesController < ApplicationController
     )
     @profile = Profile.where(user_id: current_user.id)
     @next = Next.all.order('created_at DESC')
+    @exist = Exist.all.order('created_at DESC')
   end
 end
