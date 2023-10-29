@@ -9,6 +9,10 @@ class ExistController < ApplicationController
     @exist = Exist.new
   end
 
+  def edit
+    @exist = Exist.find(params[:id])
+  end
+
   def create
     @exist = Exist.new(exist_params)
     @exist.user_id = current_user.id
