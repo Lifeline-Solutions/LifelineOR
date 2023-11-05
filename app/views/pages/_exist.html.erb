@@ -1,6 +1,7 @@
 <div class="flex flex-row rounded bg-gray-50 dark:bg-gray-800 mb-4">
 
   <% @exist.each do |exis| %>
+
     <% if can? :read, exis %>
       <%= link_to edit_exist_path(exis.id) do %>
           <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded p-4  ">
@@ -8,5 +9,6 @@
           </button>
       <% end %>
     <% end %>
-  <% end %>
+    <% end %>
+
 </div>
