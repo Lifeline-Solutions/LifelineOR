@@ -15,3 +15,19 @@
  *= require simple_calendar
 
  */
+
+.bg-color {
+  background-image: url("bg-color.png");
+  /* background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+.medical-records {
+  background-image: url("highlighter.png");
+  background-size: 104% 106%;
+  display: inline-block;
+}
+
+.home-bg {
+  background-image: url("home-bg.png"); /* Path to your background image */
+}

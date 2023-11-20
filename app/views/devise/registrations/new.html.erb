@@ -1,36 +1,76 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<section class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-          Sign Up        </h1>
-        <form class="space-y-4 md:space-y-6" action="#">
-          <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "name@company.com", required: true %>
-          </div>
+<div class="flex h-screen w-full">
+  <section class="w-1/2 flex flex-col items-center relative">
+  
+    <div>    
+      <%= image_tag('lifeline-new.png', alt: 'Lifeline Logo', class: "w-[150px] h-[150px] mt-7 mb-28") %>
+    </div>
 
-          <div class="field">
-              <%= f.label :password, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white" %>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
-              <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true %>
-          </div>
-          <div>
-            <%= f.label :password_confirmation, class: "block mb-2 text-sm font-medium text-gray-900 dark:text-white"  %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true %>
-          </div>
-          <%= f.submit "Sign Up", class: "w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-[#000]" %>
-          <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-           Already have an account Sign in? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500"><%= render "devise/shared/links" %></a>
-          </p>
-        </form>
+    <div class="flex">  
+      <div class="w-6 h-1 border border-transparent rounded-xl bg-[#79bcf5] mt-[10px] mr-2"></div>
+      <p class="text-[#79bcf5] font-bold"> Revolutionize records keeping</p>
+    </div>
+    <div class="text-start mt-2 ml-[25%] ">  
+      <h2 class=" text-6xl font-semibold leading-tight mb-8"> Easily access
+      <br/>
+      your <br/>
+      <span class="medical-records bg-center bg-origin-padding bg-no-repeat bg-contain">medical records</span>
+      </h2>
+    </div>
+     <p class="ml-[15%] mt-4 text-lg font-medium leading-relaxed"> Lifeline Medics incorporates NFC hardware <br/> to revolutionize how medical records are stored 
+    </p>
+ 
+  </section>
+
+  <section class=" w-1/2 relative bg-color bg-cover">
+  <%= image_tag('blurred_circle.png', alt: 'blurred circle', class: 'absolute -right-32 top-24 opacity-70') %>
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <div class="w-full  md:mt-0 sm:max-w-md xl:p-0 ">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
+          
+          
+            <section class="bg-gray-50 dark:bg-gray-900 home-bg bg-cover">
+              
+                  <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700 opacity-90">
+                    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Sign Up
+                      </h1>
+                      <form class="space-y-4 md:space-y-6 form" action="#">
+                        <div>
+                          <label for="email" class="block mb-2 text-base font-bold text-gray-900 dark:text-white">Your email</label>
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "bg-white border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "name@company.com", required: true %>
+                        </div>
+
+                        <div class="field">
+                            <%= f.label :password, class: "block mb-2 text-base font-bold text-gray-900 dark:text-white" %>
+                            <% if @minimum_password_length %>
+                              <em>(<%= @minimum_password_length %> characters minimum)</em>
+                            <% end %><br />
+                            <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true %>
+                        </div>
+                        <div>
+                          <%= f.label :password_confirmation, class: "block mb-2 text-base font-bold text-gray-900 dark:text-white"  %>
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", required: true %>
+                        </div>
+                        <%= f.submit "Sign Up", class: "w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-[#000]" %>
+                        <p class="text-sm font-light text-gray-900 dark:text-gray-400">
+                        Already have an account Sign in? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500"><%= render "devise/shared/links" %></a>
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+              
+            </section>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+  
+
+</div>
+
+
 
 <% end %>
