@@ -1,7 +1,6 @@
 <turbo-frame id="current-chat">
   <div id="<%= dom_id chat %>">
     <div id="history-area" class="h-full">
-
       <% unless chat.q_and_a.blank? %>
         <%  chat.q_and_a.each do |question, answer| %>
           <div class="row mb-2">
@@ -16,8 +15,6 @@
           </div>
         <% end %>
       <% end %>
-
-
     </div>
   </div>
     <%= form_with(model: chat) do |form| %>

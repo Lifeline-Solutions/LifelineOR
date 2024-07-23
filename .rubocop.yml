@@ -7,6 +7,7 @@ AllCops:
     - "Guardfile"
     - "Rakefile"
     - "node_modules/**/*"
+    - "path/to/chat.rb"
 
   DisplayCopNames: true
 
@@ -62,3 +63,6 @@ Style/HashTransformValues:
   Enabled: false
 Style/StructInheritance:
     Enabled: false
+Style/OpenStructUse:
+    Enabled: false
+
