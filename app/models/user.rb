@@ -7,9 +7,17 @@ class User < ApplicationRecord
 
   # After User is create create a bio
   after_create :create_profile
+  after_create :create_cart
+
+  # associations
+  has_one :cart
 
   def create_profile
     Profile.create(user_id: id)
+  end
+
+  def create_cart
+    Cart.create!(user_id: id)
   end
 
   has_one :next, foreign_key: :user_id, class_name: 'Next', dependent: :destroy

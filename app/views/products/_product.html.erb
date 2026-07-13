@@ -1,0 +1,15 @@
+<div id="<%= dom_id product %>" class="flex flex-col gap-2 pt-16">
+
+  <% if product.image.attached? %>
+    <%= image_tag product.image, class: '' %>
+  <% end %>
+
+  <p class="capitalize">
+    <%= product.name %>
+  </p>
+
+  <p class="capitalize font-medium">
+    <%= number_to_currency(product.price, unit: "Ksh ", precision: 0, delimiter: ",", separator: ".") %>
+  </p>
+
+</div>

@@ -75,12 +75,15 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+
+gem 'byebug', '~> 11.1', '>= 11.1.3'
 gem 'annotate', '~> 3.2', group: :development
+
 gem 'cancancan'
 gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.9'
 gem 'devise-two-factor', '~> 5.0'
-gem 'dotenv-rails', '~> 3.1', groups: %i[development test]
+gem 'dotenv-rails', '~> 3.1', '>= 3.1.2'
 gem 'font-awesome-sass', '~> 6.5.1'
 gem 'letter_opener', '~> 1.10', group: :development
 gem 'phonelib', '~> 0.8.4'

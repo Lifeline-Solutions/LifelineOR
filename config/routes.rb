@@ -1,5 +1,6 @@
 
 Rails.application.routes.draw do
+  resources :products
   resources :chats
   resources :charts
   root "pages#index"
@@ -27,6 +28,19 @@ Rails.application.routes.draw do
   resources :next
   resources :exist
   resources :page
+
+  
+  resources :carts, only: :show
+  resources :orders do
+    get 'checkout', on: :collection
+  end
+
+  post 'cart_items/:product_id', to: "cart_items#create", as: 'add_to_cart'
+  patch 'cart_items/:product_id/increment', to: "cart_items#increment", as: 'increment'
+  patch 'cart_items/:product_id/decrement', to: "cart_items#decrement", as: 'decrement'
+
+
   resources :home
   resources :chat
+
 end
